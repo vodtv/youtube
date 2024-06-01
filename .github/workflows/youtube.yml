@@ -1,0 +1,611 @@
+name: Get YouTube Live m3u8
+on:
+  schedule:
+    - cron: '0 0/3 * * *'
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: config
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+    - name: Install yt-dlp
+      run: |
+        sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+        sudo chmod a+rx /usr/local/bin/yt-dlp
+
+    - name: Get PeppaPig.m3u8
+      run: |
+        touch ./PeppaPig.m3u8
+        sudo cat >./PeppaPig.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@PeppaPigChineseOfficial/live)
+        EOL
+    - name: Get LionFamily.m3u8
+      run: |
+        touch ./LionFamily.m3u8
+        sudo cat >./LionFamily.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@VexTrexKidsCartoon/live)
+        EOL
+    - name: Get LionFamily2.m3u8
+      run: |
+        touch ./LionFamily2.m3u8
+        sudo cat >./LionFamily2.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@lionfamilyenglish4878/live)
+        EOL
+    - name: Get MashaandtheBear.m3u8
+      run: |
+        touch ./MashaandtheBear.m3u8
+        sudo cat >./MashaandtheBear.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@MashaBearCHINA/live)
+        EOL
+    - name: Get MashaandtheBear2.m3u8
+      run: |
+        touch ./MashaandtheBear2.m3u8
+        sudo cat >./MashaandtheBear2.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@MashaBearTAIWAN/live)
+        EOL
+    - name: Get Wolfoosstories.m3u8
+      run: |
+        touch ./Wolfoosstories.m3u8
+        sudo cat >./Wolfoosstories.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@KatFamilyChannel/live)
+        EOL
+    - name: Get HamsterEscape.m3u8
+      run: |
+        touch ./HamsterEscape.m3u8
+        sudo cat >./HamsterEscape.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@HamsterEscape/live)
+        EOL
+    - name: Get PeaPeaKorea.m3u8
+      run: |
+        touch ./PeaPeaKorea.m3u8
+        sudo cat >./PeaPeaKorea.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@PeaPeaWorld/live)
+        EOL
+    - name: Get OddbodsFRIENDS.m3u8
+      run: |
+        touch ./OddbodsFRIENDS.m3u8
+        sudo cat >./OddbodsFRIENDS.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@Oddbods/live)
+        EOL
+    - name: Get CANDYCRUSH.m3u8
+      run: |
+        touch ./CANDYCRUSH.m3u8
+        sudo cat >./CANDYCRUSH.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@KedooToonsTV/live)
+        EOL
+    - name: Get HOGI.m3u8
+      run: |
+        touch ./HOGI.m3u8
+        sudo cat >./HOGI.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@Hogi/live)
+        EOL
+    - name: Get AntiksOfficial.m3u8
+      run: |
+        touch ./AntiksOfficial.m3u8
+        sudo cat >./AntiksOfficial.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@AntiksOfficial/live)
+        EOL
+    - name: Get LocoNutsCartoonVideos.m3u8
+      run: |
+        touch ./LocoNutsCartoonVideos.m3u8
+        sudo cat >./LocoNutsCartoonVideos.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@loconutscartoonvideos/live)
+        EOL
+    - name: Get GetMovies.m3u8
+      run: |
+        touch ./GetMovies.m3u8
+        sudo cat >./GetMovies.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@getmovies/live)
+        EOL
+    - name: Get BabySharkOfficial.m3u8
+      run: |
+        touch ./BabySharkOfficial.m3u8
+        sudo cat >./BabySharkOfficial.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@BabyShark/live)
+        EOL
+    - name: Get TalkingTomHeroes.m3u8
+      run: |
+        touch ./TalkingTomHeroes.m3u8
+        sudo cat >./TalkingTomHeroes.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@TalkingTomHeroes/live)
+        EOL
+    - name: Get BoobaCartoon.m3u8
+      run: |
+        touch ./BoobaCartoon.m3u8
+        sudo cat >./BoobaCartoon.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@Booba/live)
+        EOL
+    - name: Get OkoLeleOfficialchannel.m3u8
+      run: |
+        touch ./OkoLeleOfficialchannel.m3u8
+        sudo cat >./OkoLeleOfficialchannel.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@OkoLele/live)
+        EOL
+    - name: Get arirangworld.m3u8
+      run: |
+        touch ./arirangworld.m3u8
+        sudo cat >./arirangworld.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@arirangworld/live)
+        EOL
+    - name: Get ALLTHEKPOP.m3u8
+      run: |
+        touch ./ALLTHEKPOP.m3u8
+        sudo cat >./ALLTHEKPOP.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@ALLTHEKPOP/live)
+        EOL
+    - name: Get TheKPOP.m3u8
+      run: |
+        touch ./TheKPOP.m3u8
+        sudo cat >./TheKPOP.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@thekpop/live)
+        EOL
+    - name: Get TheKPOP2.m3u8
+      run: |
+        touch ./TheKPOP2.m3u8
+        sudo cat >./TheKPOP2.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@thekpop2/live)
+        EOL
+    - name: Get HealingComma.m3u8
+      run: |
+        touch ./HealingComma.m3u8
+        sudo cat >./HealingComma.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@HealingComma/live)
+        EOL
+    - name: Get CafeMusicBGMchannel.m3u8
+      run: |
+        touch ./CafeMusicBGMchannel.m3u8
+        sudo cat >./CafeMusicBGMchannel.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@cafemusicbgmchannel/live)
+        EOL
+    - name: Get GreenMusicBGMchannel.m3u8
+      run: |
+        touch ./GreenMusicBGMchannel.m3u8
+        sudo cat >./GreenMusicBGMchannel.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@cafemusicbgmchannel/live)
+        EOL
+    - name: Get HawaiianMusicBGMchannel.m3u8
+      run: |
+        touch ./HawaiianMusicBGMchannel.m3u8
+        sudo cat >./HawaiianMusicBGMchannel.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@hawaiianbgmchannel/live)
+        EOL
+    - name: Get NemosDreamscapes.m3u8
+      run: |
+        touch ./NemosDreamscapes.m3u8
+        sudo cat >./NemosDreamscapes.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@NemosDreamscapes/live)
+        EOL
+    - name: Get NatureRelax4K.m3u8
+      run: |
+        touch ./NatureRelax4K.m3u8
+        sudo cat >./NatureRelax4K.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@naturerelax4k984/live)
+        EOL
+    - name: Get SpaceVideosHD.m3u8
+      run: |
+        touch ./SpaceVideosHD.m3u8
+        sudo cat >./SpaceVideosHD.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@SpaceVideosHD/live)
+        EOL
+    - name: Get RailWay.m3u8
+      run: |
+        touch ./RailWay.m3u8
+        sudo cat >./RailWay.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@_RailWay_/live)
+        EOL
+    - name: Get RailCowGirl.m3u8
+      run: |
+        touch ./RailCowGirl.m3u8
+        sudo cat >./RailCowGirl.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@RailCowGirl/live)
+        EOL
+    - name: Get RailCowGirl.m3u8
+      run: |
+        touch ./RailCowGirl.m3u8
+        sudo cat >./RailCowGirl.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@RailCowGirl/live)
+        EOL
+    - name: Get VirtualRailfan.m3u8
+      run: |
+        touch ./VirtualRailfan.m3u8
+        sudo cat >./VirtualRailfan.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@VirtualRailfan/live)
+        EOL
+    - name: Get JAPAN_4K.m3u8
+      run: |
+        touch ./JAPAN_4K.m3u8
+        sudo cat >./JAPAN_4K.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@JAPAN_4K/live)
+        EOL
+    - name: Get AuroraBorealisLive.m3u8
+      run: |
+        touch ./AuroraBorealisLive.m3u8
+        sudo cat >./AuroraBorealisLive.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@AuroraBorealisLive/live)
+        EOL
+    - name: Get KittenAcademy.m3u8
+      run: |
+        touch ./KittenAcademy.m3u8
+        sudo cat >./KittenAcademy.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@KittenAcademy/live)
+        EOL
+    - name: Get explorebears.m3u8
+      run: |
+        touch ./explorebears.m3u8
+        sudo cat >./explorebears.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@explorebears/live)
+        EOL
+    - name: Get kansascityzoo.m3u8
+      run: |
+        touch ./kansascityzoo.m3u8
+        sudo cat >./kansascityzoo.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@kansascityzoo/live)
+        EOL
+    - name: Get FOBBVCAM.m3u8
+      run: |
+        touch ./FOBBVCAM.m3u8
+        sudo cat >./FOBBVCAM.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@FOBBVCAM/live)
+        EOL
+    - name: Get Alishannsa.m3u8
+      run: |
+        touch ./Alishannsa.m3u8
+        sudo cat >./Alishannsa.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@Alishannsa/live)
+        EOL
+    - name: Get eqm.m3u8
+      run: |
+        touch ./eqm.m3u8
+        sudo cat >./eqm.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@eqm/live)
+        EOL
+    - name: Get ctsprog.m3u8
+      run: |
+        touch ./ctsprog.m3u8
+        sudo cat >./ctsprog.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@cts_drama/live)
+        EOL
+    - name: Get GTVDRAMA.m3u8
+      run: |
+        touch ./GTVDRAMA.m3u8
+        sudo cat >./GTVDRAMA.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@gtv-drama/live)
+        EOL
+    - name: Get FTVDRAMA.m3u8
+      run: |
+        touch ./FTVDRAMA.m3u8
+        sudo cat >./FTVDRAMA.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@FTVDRAMA/live)
+        EOL
+    - name: Get TBSCTSSHOW.m3u8
+      run: |
+        touch ./TBSCTSSHOW.m3u8
+        sudo cat >./TBSCTSSHOW.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@CTSSHOW/live)
+        EOL
+    - name: Get CtiEntertainment.m3u8
+      run: |
+        touch ./CtiEntertainment.m3u8
+        sudo cat >./CtiEntertainment.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@CtiEntertainment/live)
+        EOL
+    - name: Get AsiaDigitalMedia.m3u8
+      run: |
+        touch ./AsiaDigitalMedia.m3u8
+        sudo cat >./AsiaDigitalMedia.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@AsiaDigitalMedia/live)
+        EOL
+    - name: Get Faintv.m3u8
+      run: |
+        touch ./Faintv.m3u8
+        sudo cat >./Faintv.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@user-ru4oy4fp1u/live)
+        EOL
+    - name: Get Mr.Player.m3u8
+      run: |
+        touch ./Mr.Player.m3u8
+        sudo cat >./Mr.Player.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@Mr.Player/live)
+        EOL
+    - name: Get ctitv.m3u8
+      run: |
+        touch ./ctitv.m3u8
+        sudo cat >./ctitv.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@CtiTv/live)
+        EOL
+    - name: Get newsebc.m3u8
+      run: |
+        touch ./newsebc.m3u8
+        sudo cat >./newsebc.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@newsebc/live)
+        EOL
+    - name: Get EBCFinancial.m3u8
+      run: |
+        touch ./EBCFinancial.m3u8
+        sudo cat >./EBCFinancial.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@57ETFN/live)
+        EOL
+    - name: Get TVBSNEWS01.m3u8
+      run: |
+        touch ./TVBSNEWS01.m3u8
+        sudo cat >./TVBSNEWS01.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@TVBSNEWS01/live)
+        EOL
+    - name: Get GlobalNewsTV.m3u8
+      run: |
+        touch ./GlobalNewsTV.m3u8
+        sudo cat >./GlobalNewsTV.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@globalnewstw/live)
+        EOL
+    - name: Get mnews.m3u8
+      run: |
+        touch ./mnews.m3u8
+        sudo cat >./mnews.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@mnews-tw/live)
+        EOL
+    - name: Get ttvnewsview.m3u8
+      run: |
+        touch ./ttvnewsview.m3u8
+        sudo cat >./ttvnewsview.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@TTV_NEWS/live)
+        EOL
+    - name: Get twctvnews.m3u8
+      run: |
+        touch ./twctvnews.m3u8
+        sudo cat >./twctvnews.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@twctvnews/live)
+        EOL
+    - name: Get DaAiVideo.m3u8
+      run: |
+        touch ./DaAiVideo.m3u8
+        sudo cat >./DaAiVideo.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@DaAiVideo/live)
+        EOL
+    - name: Get SETN.m3u8
+      run: |
+        touch ./SETN.m3u8
+        sudo cat >./SETN.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@setn/live)
+        EOL
+    - name: Get SETLIVE.m3u8
+      run: |
+        touch ./SETLIVE.m3u8
+        sudo cat >./SETLIVE.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@setnews/live)
+        EOL
+    - name: Get setmoney159.m3u8
+      run: |
+        touch ./setmoney159.m3u8
+        sudo cat >./setmoney159.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@setinews/live)
+        EOL
+    - name: Get FTVLIVE.m3u8
+      run: |
+        touch ./FTVLIVE.m3u8
+        sudo cat >./FTVLIVE.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@FTVLive/live)
+        EOL
+    - name: Get FTVCP.m3u8
+      run: |
+        touch ./FTVCP.m3u8
+        sudo cat >./FTVCP.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@FTV_News/live)
+        EOL
+    - name: Get CNN-News18.m3u8
+      run: |
+        touch ./CNN-News18.m3u8
+        sudo cat >./CNN-News18.m3u8 <<EOL
+        #EXTM3U
+        #EXT-X-VERSION:3
+        #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2560000
+        $(yt-dlp --print urls https://www.youtube.com/@cnnnews18/live)
+        EOL
+
+    - name: git add
+      run: |
+        git add -A
+        ls -la
+
+    - name: commit & push
+      run: |
+        git commit -m "links are updated"
+        git push
