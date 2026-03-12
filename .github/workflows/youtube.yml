@@ -597,12 +597,11 @@ jobs:
         $(yt-dlp --print urls https://www.youtube.com/@cnnnews18/live)
         EOL
 
-    - name: git add
+    - name: 提交并推送更改
       run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add -A
         ls -la
-
-    - name: commit & push
-      run: |
         git commit -m "links are updated"
         git push
