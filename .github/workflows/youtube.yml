@@ -604,4 +604,4 @@ jobs:
         git add -A
         ls -la
         git commit -m "links are updated"
-        git push
+        git push origin main
